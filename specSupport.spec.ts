@@ -1,11 +1,12 @@
-import { loadSpec, jsonPath, processEndpoint, template, getResponses } from "./specSupport"
-import { PathsObject, OperationObject } from "openapi3-ts"
-import { log, debug } from "./utils"
+//import { loadSpec, jsonPath, processEndpoint, template, getResponses } from "./specSupport"
+//import { PathsObject, OperationObject } from "openapi3-ts"
+//import { log, debug } from "./utils"
 
+/*
 describe('spec support', () => {
 
   beforeAll( ()=> {
-    loadSpec('./Looker.3.1.oas.json')
+  //  loadSpec('./Looker.3.1.oas.json')
   })
 
   describe('array type determination', () => {
@@ -68,4 +69,25 @@ describe('spec support', () => {
     log(output)
   })
 
+})
+*/
+
+var slm = require('slm');
+var FS = require('fs');
+
+describe('slm', () => {
+  it('test slm', () => {
+    const src = FS.readFileSync('./method.slm', 'utf-8')
+    const model = {
+      test_value: 'hello world!',
+      methods: [
+        { httpMethod: 'GET', endpoint: 'run_query'},
+        { httpMethod: 'POST', endpoint: 'run_inline_query'},
+      ]
+    };
+
+    const result = slm.render(src, model, {})
+
+    console.log(result)
+  })
 })

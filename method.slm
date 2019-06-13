@@ -1,0 +1,8 @@
+| Here's interpolation:
+| # total API methods: ${this.methods.length}
+- for (var a of this.methods)
+  | Arbitrary text goes almost anywhere
+  ==a.httpMethod
+  ==a.endpoint
+
+| Tada!
